@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POO.Bussines
 {
-    public class Beer : Drink
+    public class Beer : Drink , ISalable
     {
 
         private const string Category = "Cerveza";
@@ -63,6 +63,9 @@ namespace POO.Bussines
         {
             return Category;
         }
+
+        public decimal GetPrice()
+             => Price;
 
     }
 }
