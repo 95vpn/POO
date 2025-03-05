@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POO.Bussines
 {
-    public class Beer : Drink , ISalable
+    public class Beer : Drink , ISalable, ISend
     {
 
         private const string Category = "Cerveza";
@@ -14,6 +14,8 @@ namespace POO.Bussines
         private decimal _alcohol;
         public string Name { get; set; }
         public decimal Price { get; set; }
+
+        public static int QuantityObjects;
 
         public decimal Alcohol
         {
@@ -42,6 +44,7 @@ namespace POO.Bussines
             Name = name;
             Price = price;
             Alcohol = alcohol;
+            QuantityObjects++;
         }
 
         public virtual string GetInfo()
@@ -66,6 +69,9 @@ namespace POO.Bussines
 
         public decimal GetPrice()
              => Price;
+
+        public void Send()
+             => Console.WriteLine("Se envia por correo: " + GetInfo());
 
     }
 }
